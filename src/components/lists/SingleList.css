@@ -1,0 +1,16 @@
+.single-list{
+    background-color: lightgrey;
+    margin: 10px;
+    width: 250px;
+    min-height: 80px;
+    padding: 10px;
+    /* position: relative; */
+}
+.single-list .but, .single-list .tit{
+    display: flex;
+    justify-content: space-between;
+
+}
+.single-list .but{
+    margin-top: 10px;
+}
