@@ -1,8 +1,10 @@
 .add-post{
     background-color: white;
     margin: 10px;
-    width: 250px;
+    width: 270px;
     height: 80px;
+    border-radius: 5px;
+    padding: 0 10px;
 }
 /* button {
     height: 40px;

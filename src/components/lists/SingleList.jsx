@@ -25,12 +25,13 @@ const SingleList = (props)=>{
                 })}
             </div>
             <div className='but' >
-                {!showInps && <><span onClick={()=>setShowInps(true)} >+ Add to card</span><span>Q</span></>}
+                {!showInps && <><span className='add-to-card' onClick={()=>setShowInps(true)} >+ Add to card</span></>}
                 {showInps && <div>
                     <div><textarea value={inpVal} onChange={(e)=>setInpVal(e.target.value)}  name="" id="" cols="30" rows="3"></textarea></div>
                     <div>
-                        <button className='btn btn-success' onClick={()=>(cardAddNewCard(id,inpVal),setInpVal(''))} >Add List</button>
-                        <button>...</button>
+                        {inpVal && <button className='btn btn-success' onClick={()=>(cardAddNewCard(id,inpVal),setInpVal(''))} >Add to Card</button>}
+                        {!inpVal && <button className='btn btn-success disabled' >Add to Card</button>}
+                        {/* <button>...</button> */}
                         <button onClick={()=>setShowInps(false)}  type="button" className="close" aria-label="Close" >
                             <span aria-hidden="true">&times;</span>
                         </button>

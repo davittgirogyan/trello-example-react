@@ -27,7 +27,8 @@ const ModalEditCard = (props)=> {
                 <h5>Description <span onClick={()=>setDescEditMode(true)} style={{cursor:"pointer"}} >Edit</span></h5>
                 {descEditMode &&<>
                     <textarea value={descH} onChange={(e)=>setDescH(e.target.value)} ></textarea>
-                    <button className='btn btn-success' onClick={()=>(cardSaveEditedCardDescription(id,descH),setDescEditMode(false))} >Save</button>
+                    {descH && <button className='btn btn-success' onClick={()=>(cardSaveEditedCardDescription(id,descH),setDescEditMode(false))} >Save</button>}
+                    {!descH && <button className='btn btn-success disabled'>Save</button>}
                 </> }
                 {!descEditMode && <span>{description}</span>}
                 
@@ -35,7 +36,8 @@ const ModalEditCard = (props)=> {
                 <h5>Activity</h5>
                 <input placeholder='Write a comment' onFocus={()=>(setShowWriteComm(true))} onChange={(e)=>setCommText(e.target.value)} value={commText} /><br/>
                 {showWriteComm && <>
-                <button className='btn btn-success' onClick={()=>(cardAddInCardNewComment(id,commText),setCommText(''))} >Save</button>
+                {commText && <button className='btn btn-success' onClick={()=>(cardAddInCardNewComment(id,commText),setCommText(''))} >Save</button>}
+                {!commText && <button className='btn btn-success disabled' >Save</button>}
                 <label>Watch</label><input type='checkbox' ></input>
                 <i className="fa fa-times" aria-hidden="true" onClick={()=>(setShowWriteComm(false))}></i>
                 </>
